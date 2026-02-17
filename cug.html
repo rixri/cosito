@@ -20,12 +20,16 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            /* FONT GLOBALE: Articulat CF */
             font-family: "articulat-cf", sans-serif !important;
         }
 
+        body {
+            /* Impedisce lo scroll orizzontale causato dalle linee che "escono" */
+            overflow-x: hidden;
+            background-color: var(--bg-color);
+        }
+
         body, p, span, div, a, li, button {
-            /* PESO MINIMO: 500 (Medium) */
             font-weight: 500 !important;
             color: var(--text-color);
             -webkit-font-smoothing: antialiased;
@@ -33,10 +37,10 @@
         }
 
         h1, h2, h3, strong, b {
-            font-weight: 800 !important; /* ExtraBold per titoli */
+            font-weight: 800 !important;
         }
 
-        /* --- HEADER NAVIGATION (Coerente con le altre pagine) --- */
+        /* --- HEADER NAVIGATION --- */
         #main-header {
             position: fixed; top: 0; left: 0; width: 100%;
             height: var(--header-height);
@@ -50,50 +54,13 @@
 
         .logo { 
             font-size: 24px; 
-            font-weight: 800 !important; /* Extra Bold */
+            font-weight: 800 !important;
             letter-spacing: -0.5px; 
-            z-index: 1001; 
             text-decoration: none; 
             color: #000; 
         }
 
-        .desktop-only-nav ul { list-style: none; display: flex; margin: 0; padding: 0; align-items: center; }
-        .desktop-only-nav ul li { margin: 0 25px; }
-        
-        .desktop-only-nav ul li a { 
-            font-weight: 700 !important; /* Bold */
-            font-size: 14px; 
-            text-transform: lowercase; 
-            position: relative; 
-            text-decoration: none; 
-            color: #000;
-        }
-        
-        .desktop-only-nav ul li a::after { content: ''; position: absolute; width: 0; height: 1px; bottom: -5px; left: 0; background-color: #000; transition: width 0.3s; }
-        .desktop-only-nav ul li a:hover::after { width: 100%; }
-
-        /* Menu Mobile Elements */
-        .hamburger-icon { display: none; flex-direction: column; gap: 6px; cursor: pointer; z-index: 2000; }
-        .hamburger-icon span { width: 30px; height: 2px; background: #000; transition: all 0.3s ease; }
-
-        #mobile-overlay-menu {
-            display: flex; position: fixed; top: 0; right: -100%;
-            width: 100%; height: 100vh; background: #fff; z-index: 1999;
-            flex-direction: column; justify-content: center; align-items: center; 
-            transition: right 0.5s ease;
-        }
-        #mobile-overlay-menu.open { right: 0; }
-
-        .close-menu-btn { 
-            font-weight: 700 !important; font-size: 30px; 
-            position: absolute; top: 30px; right: 30px; cursor: pointer; color: #000;
-        }
-
-        .mobile-links { list-style: none; padding: 0; text-align: center; display: flex; flex-direction: column; gap: 40px; }
-        .mobile-links a { font-weight: 700 !important; font-size: 2.5rem; color: #000; text-decoration: none; }
-
         /* --- PAGE CONTENT --- */
-        /* Hero Section */
         .hero {
             height: 80vh;
             display: flex;
@@ -101,7 +68,7 @@
             justify-content: center;
             align-items: center;
             text-align: center;
-            padding: 70px ; 
+            padding: 70px; 
         }
 
         .hero h1 {
@@ -114,7 +81,6 @@
         .hero p {
             max-width: 650px;
             font-size: 1.2rem;
-            font-weight: 500 !important; /* Medium */
             line-height: 1.3;
         }
 
@@ -125,7 +91,7 @@
             align-items: flex-start;
             padding: 40px 5%;
             font-size: 0.9rem;
-            font-weight: 700 !important; /* Bold */
+            font-weight: 700 !important;
         }
 
         .nav-hints a {
@@ -142,19 +108,14 @@
             flex: 1; 
         }
         
-        .nav-hints > div:last-child {
-    display: block !important; 
-}
-        
         .scroll-prompt-container {
             display: flex; 
-    flex-direction: column; 
-    align-items: center; 
-    justify-content: center;
-    flex: 0 0 auto; 
-    text-align: center;
-            
-           
+            flex-direction: column; 
+            align-items: center; 
+            justify-content: center;
+            flex: 0 0 auto; 
+            text-align: center;
+            cursor: pointer;
         }
 
         .arrow-down {
@@ -170,12 +131,22 @@
             60% {transform: translateY(-5px) rotate(45deg);}
         }
 
-        .nav-hints a:hover { opacity: 0.6; }
-
-        /* Section: C.U.G. */
+        /* --- SECTION: C.U.G. CON LINEE BORDO A BORDO --- */
         .section-cug {
-            padding: 80px 5%;
-            border-top: 1px solid var(--border-color);
+            padding: 80px 5% 10px 5%;
+            position: relative; /* Necessario per posizionare la linea */
+        }
+
+        /* Linea sopra la sezione CUG */
+        .section-cug::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100vw;
+            height: 1px;
+            background-color: var(--border-color);
         }
 
         .section-cug h2 {
@@ -186,32 +157,54 @@
         .quote {
             font-size: clamp(1.1rem, 2.5vw, 1.8rem);
             line-height: 1.3;
-            font-weight: 500 !important; /* Medium (era 400) */
             max-width: 1100px;
             margin-bottom: 20px;
         }
 
         .source {
             font-size: 0.9rem;
-            font-weight: 500 !important;
             color: #666;
             margin-bottom: 60px;
         }
 
-        /* Grid Table */
+        /* Grid Table CON LINEE BORDO A BORDO */
         .info-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            border-top: 1px solid var(--border-color);
-            border-bottom: 1px solid var(--border-color);
+            position: relative;
         }
 
+        /* Linea sopra e sotto la griglia */
+        .info-grid::before, .info-grid::after {
+            content: "";
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100vw;
+            height: 1px;
+            background-color: var(--border-color);
+        }
+        .info-grid::before { top: 0; }
+        .info-grid::after { bottom: 0; }
+
         .links-col {
-            padding: 40px 40px 40px 0;
-            border-right: 1px solid var(--border-color);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
+    padding: 40px 40px 40px 0;
+    border-right: 1px solid var(--border-color); /* <--- QUESTA FA TORNARE LA LINEA VERTICALE SUL PC */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+}
+
+        .links-col::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100vw;
+            height: 1px;
+            background-color: var(--border-color);
         }
 
         .links-col a {
@@ -219,21 +212,17 @@
             text-decoration: none;
             color: inherit;
             font-size: 1rem;
-            font-weight: 500 !important;
             padding: 12px 0;
             border-bottom: 1px solid #ddd;
             transition: color 0.3s;
         }
 
-        .links-col a:hover { color: #007bff; }
-
         .text-col {
-            padding: 40px;
+            padding: 40px 0 40px 40px;
             font-size: 1.4rem;
             line-height: 1.3;
             display: flex;
             align-items: center;
-            font-weight: 500 !important;
         }
 
         /* CTA Section */
@@ -244,190 +233,91 @@
 
         .cta-section h2 {
             font-size: clamp(2rem, 4vw, 3.8rem);
-            font-weight: 800 !important;
             max-width: 900px;
             line-height: 1.1;
         }
 
-        /* Responsive */
-        @media (max-width: 768px) {
-            #main-header { padding: 0 20px; height: 60px; }
-            .desktop-only-nav { display: none !important; }
-            .hamburger-icon { display: flex; }
-            
-            .hero { padding-top: 170px; height: auto; padding-bottom: 60px; }
-
-            .info-grid { grid-template-columns: 1fr; }
-            
-            .links-col {
-                border-right: none;
-                border-bottom: 1px solid var(--border-color);
-                padding: 40px 0;
-            }
-            .text-col { padding: 40px 0; }
-            
-            .nav-hints { flex-direction: column; gap: 30px; text-align: center; align-items: center; }
+        /* --- FOOTER CON LINEA BORDO A BORDO --- */
+        .site-footer {
+            width: 100%;
+            background-color: #fff;
+            position: relative;
+            padding: 60px 60px;
+            margin-top: 30px;
         }
 
-        .site-footer {
-    width: 100%;
-    background-color: #fff;
-    border-top: 1px solid #000;
-    padding: 60px 60px;
-    margin-top: 80px;
-    font-family: "articulat-cf", sans-serif !important;
-    color: #000;
-}
+        .site-footer::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100vw;
+            height: 1px;
+            background-color: #000;
+        }
 
-.footer-top {
-    margin-bottom: 30px;
-    text-align: left;
-}
+        .footer-top { margin-bottom: 30px; }
+        .footer-logo { font-size: 3.8rem; letter-spacing: -2px; line-height: 1; }
+        .footer-tagline { font-size: 1.6rem; letter-spacing: -0.5px; }
 
-.footer-logo {
-    font-size: 3.8rem;
-    font-weight: 800 !important;
-    line-height: 1;
-    margin: 0;
-    letter-spacing: -2px;
-}
+        .footer-info-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr 1.2fr;
+            gap: 100px;
+            align-items: start;
+        }
 
-.footer-tagline {
-    font-size: 1.6rem;
-    font-weight: 700 !important;
-    margin: 0;
-    letter-spacing: -0.5px;
-}
+        .footer-cartiglio { max-width: 300px; width: 100%; height: auto; margin-top: 15px; }
+        .ig-link { font-weight: 700 !important; text-decoration: underline; font-size: 1rem; margin-bottom: 20px; display: inline-block; }
 
-/* --- Griglia informazioni --- */
-
-.footer-info-grid {
-    display: grid;
-    grid-template-columns: 1.2fr 1fr 1.2fr;
-    gap: 100px;               /* 👈 PIÙ SPAZIO TRA LE COLONNE */
-    align-items: start;
-}
-
-/* Colonna base */
-
-.info-col {
-    display: flex;
-    flex-direction: column;
-    text-align: left;
-}
-
-/* --- Testo descrizione (sinistra) --- */
-
-.footer-subtext {
-    font-size: 0.95rem;
-    font-weight: 500 !important;
-    line-height: 1.5;
-    margin: 0;
-}
-
-/* --- Colonna centrale (CONTATTI) — CENTRATA --- */
-
-.contact-col {
-    align-items: center;
-    text-align: left;
-}
-
-.ig-link {
-    font-weight: 700 !important;
-    text-decoration: underline;
-    font-size: 1rem;
-    margin-bottom: 20px;
-}
-
-
-.footer-cartiglio {
-    max-width: 300px; /* Alza questo valore finché non ti soddisfa */
-    width: 100%;      /* Forza l'immagine a prendersi lo spazio del max-width */
-    height: auto;
-    margin-top: 15px; /* Opzionale: aggiunge un po' di respiro dal testo sopra */
-}
-
-/* --- Colonna istituzione (DESTRA) --- */
-/* Blocco sul lato destro ma testo a sinistra */
-
-.footer-info-grid .info-col:last-child {
-    align-items: flex-start;
-    text-align: left;
-}
-
-.institution-text {
-    font-size: 0.8rem;
-    line-height: 1.6;
-    font-weight: 500 !important;
-    margin: 0;
-}
-
-.institution-text strong {
-    font-weight: 700 !important;
-}
-
-/* --- Responsive --- */
-
-@media (max-width: 768px) {
-
-    .site-footer {
-        padding: 50px 30px;
-    }
-
-    .footer-info-grid {
-        grid-template-columns: 1fr;
-        gap: 35px;
-    }
-
-    .contact-col {
-        align-items: flex-start;
-        text-align: left;
-    }
-
-    .footer-info-grid .info-col:last-child {
-        align-items: flex-start;
-        text-align: left;
-    }
-
-    .footer-logo {
-        font-size: 2.8rem;
-    }
-}
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero { padding-top: 170px; height: auto; padding-bottom: 60px; }
+            .info-grid { grid-template-columns: 1fr; }
+            .links-col { border-right: none; padding: 40px 0; }
+            .text-col { padding: 40px 0; }
+            .nav-hints { flex-direction: column; gap: 30px; text-align: center; align-items: center; }
+            .footer-info-grid { grid-template-columns: 1fr; gap: 35px; }
+        }
     </style>
 </head>
 <body>
 
-    <header class="hero">
-        <h1>Benvenut* in CoOrdinati®!</h1>
-        <p>Il nostro obiettivo è ispirare un cambiamento quotidiano e duraturo, oltre il semplice acquisto. Unisciti a noi per costruire insieme abitudini che migliorano la vita.</p>
+    <header id="main-header">
+        <a href="index.html" class="logo">CoOrdinati®</a>
     </header>
+
+    <section class="hero">
+        <h1>Benvenut* in CoOrdinati®!</h1>
+        <p>Il nostro obiettivo è ispirare un cambiamento quotidiano e duraturo, spingendo oltre ad un semplice acquisto. Unisciti a noi per costruire insieme abitudini che migliorano la vita.</p>
+    </section>
 
     <div class="nav-hints">
         <a href="index.html">← Torna alla Home</a>
-        
-        <a href="#content" class="scroll-prompt-container" onclick="scrollToContent(event)">
+        <div class="scroll-prompt-container" onclick="scrollToContent(event)">
             Scopri come agire
             <div class="arrow-down"></div>
-        </a>
-        
-        <div style="width: 100px; display: none;"></div> </div>
+        </div>
+        <div style="width: 100px; visibility: hidden;"></div> 
+    </div>
 
     <main id="content" class="section-cug">
         <h2>Sai che cos'è il C.U.G.?</h2>
         <p class="quote">
-            «Il Comitato Unico di Garanzia promuove la cultura delle pari opportunità e il rispetto della dignità della persona nel contesto lavorativo, realizzando azioni finalizzate a combattere ogni forma di discriminazione, diretta e indiretta, relativa al genere, all'età, all'orientamento sessuale, alla razza, all'origine etnica, alla disabilità, alla religione e alla lingua.»
+            «Il Comitato Unico di Garanzia promuove la cultura delle pari opportunità e il rispetto della dignità della persona nel contesto lavorativo, realizzando azioni finalizzate a combattere ogni forma di discriminazione, diretta e indiretta, relativa al genere, all'età, all'orientamento sessuale, all'origine etnica, alla disabilità, alla religione e alla lingua.»
         </p>
         <p class="source">Estratto dalla presentazione del CUG del Ministero della Difesa.</p>
 
         <div class="info-grid">
             <div class="links-col">
-                <a href="https://portalcug.gov.it/" target="_blank">https://portalcug.gov.it/</a>
+                <a href="https://portalecug.gov.it/" target="_blank">https://portalecug.gov.it/</a>
                 <a href="https://cug.cultura.gov.it/" target="_blank">https://cug.cultura.gov.it/</a>
-                <a href="#" target="_blank">https://www.polimi.it/il-politecnico/governance/...</a>
-                <a href="#" target="_blank">.../pari_opportunita/COMITATO-UNICO-DI-GARANZIA.html</a>
+                <a href="https://www.polimi.it/il-politecnico/governance/" target="_blank">https://www.polimi.it/il-politecnico/governance/</a>
+                <a href="https://www.interno.gov.it/it/ministero/comitati/comitato-unico-garanzia" target="_blank">https://www.interno.gov.it/it/ministero/comitati/comitato-unico-garanzia</a>
             </div>
             <div class="text-col">
-                <p>I C.U.G. sono una rete per luoghi di lavoro più equi, inclusivi e rispettosi, contribuendo a una cultura organizzativa fondata sui diritti e sul valore delle differenze.</p>
+                <p>I C.U.G. sono una rete per luoghi di lavoro più equi, inclusivi e rispettosi, che contribuiscono a una cultura organizzativa fondata sui diritti e sul valore delle differenze.</p>
             </div>
         </div>
     </main>
@@ -437,52 +327,40 @@
     </section>
 
     <footer class="site-footer">
-    <div class="footer-top">
-        <h2 class="footer-logo">CoOrdinati®</h2>
-        <h3 class="footer-tagline">Quando la collaborazione prende forma</h3>
-    </div>
-
-    <div class="footer-info-grid">
-        <div class="info-col desc-col">
-            <p>Campagna di comunicazione per promuovere il benessere<br>
-            e la collaborazione nei luoghi di lavoro.</p>
-            <img src="assets/Cartiglio.png" alt="Cartiglio Rete CUG" class="footer-cartiglio">
+        <div class="footer-top">
+            <h2 class="footer-logo">CoOrdinati®</h2>
+            <h3 class="footer-tagline">Quando la collaborazione prende forma</h3>
         </div>
 
-        <div class="info-col contact-col">
-            <p class="ig-intro">Per nuovi contenuti e riflessioni<br>quotidiane sulla collaborazione:</p>
-            <a href="https://www.instagram.com/coordinati.milano" target="_blank" class="ig-link">@coordinati.milano</a>
-        </div>
+        <div class="footer-info-grid">
+            <div class="info-col">
+                <p>Campagna di comunicazione per promuovere il benessere<br>e la collaborazione nei luoghi di lavoro.</p>
+                <img src="assets/Cartiglio.png" alt="Cartiglio Rete CUG" class="footer-cartiglio">
+            </div>
 
-        <div class="info-col inst-col">
-            <p><strong>Progetto accademico — Politecnico di Milano</strong><br>
-            <strong>Scuola del Design</strong><br>
-            Laboratorio di Sintesi Finale C2 · A.A. 2025/2026<br>
-            <strong>Pausa caffè</strong><br>
-            Design della comunicazione e benessere nei luoghi di lavoro</p>
+            <div class="info-col" style="text-align: left;">
+                <p>Per nuovi contenuti e riflessioni<br>quotidiane sulla collaborazione:</p>
+                <a href="https://www.instagram.com/coordinati.milano" target="_blank" class="ig-link">@coordinati.milano</a>
+            </div>
+
+            <div class="info-col">
+                <p><strong>Progetto accademico — Politecnico di Milano</strong><br>
+                <strong>Scuola del Design</strong><br>
+                Laboratorio di Sintesi Finale C2 · A.A. 2025/2026<br>
+                <strong>Pausa caffè</strong><br>
+                Design della comunicazione e benessere nei luoghi di lavoro</p>
+            </div>
         </div>
-    </div>
-</footer>
+    </footer>
 
     <script>
-        // Funzione Menu Mobile
-        function toggleMobileMenu() {
-            document.getElementById("mobile-overlay-menu").classList.toggle("open");
-            document.querySelector(".hamburger-icon").classList.toggle("active");
-        }
-
-        // Funzione Scroll Fluido
         function scrollToContent(e) {
             if(e) e.preventDefault();
             const element = document.getElementById("content");
             const headerOffset = 80;
             const elementPosition = element.getBoundingClientRect().top;
             const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-        
-            window.scrollTo({
-                top: offsetPosition,
-                behavior: "smooth"
-            });
+            window.scrollTo({ top: offsetPosition, behavior: "smooth" });
         }
     </script>
 </body>
