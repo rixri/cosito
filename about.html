@@ -65,7 +65,6 @@
             font-family: "articulat-cf", sans-serif; 
             font-weight: 700; /* Bold */
             font-size: 14px; 
-            text-transform: lowercase; 
             position: relative; 
             text-decoration: none; 
             color: #000; 
@@ -211,7 +210,6 @@
             font-size: 1.5rem;
             font-weight: 700;
             margin-top: 5px !important;
-            margin-bottom: 25px;
             display: block;
             line-height: 1.2;
         }
@@ -277,11 +275,12 @@
 
         /* CREDITS */
         .credits-names { font-size: 1.1rem; margin-bottom: 20px; max-width: 600px; line-height: 1.4; font-weight: 700; }
-        .black-label-container { margin-top: 30px; display: flex; flex-direction: column; align-items: flex-start; gap: 5px; }
-        .black-label {
-            background: #000; color: #fff; padding: 5px 10px;
-            font-size: 0.9rem; font-weight: 700; text-transform: uppercase;
-        }
+        .footer-cartiglio {
+    max-width: 300px; /* Alza questo valore finché non ti soddisfa */
+    width: 100%;      /* Forza l'immagine a prendersi lo spazio del max-width */
+    height: auto;
+    margin-top: 15px; /* Opzionale: aggiunge un po' di respiro dal testo sopra */
+}
 
         /* SLIDER (Manifesti / Cartoline) */
         .slider-container {
@@ -402,10 +401,10 @@
 
         <nav class="desktop-only-nav">
             <ul>
-                <li><a href="index.html">homepage</a></li>
-                <li><a href="catalogo.html">catalogo</a></li>
-                <li><a href="about.html">chi siamo</a></li>
-                <li><a href="carrello.html" class="cart-icon">carrello</a></li>
+                <li><a href="index.html">Homepage</a></li>
+                <li><a href="catalogo.html">Catalogo</a></li>
+                <li><a href="about.html">Il Progetto</a></li>
+                <li><a href="carrello.html" class="cart-icon">Carrello</a></li>
             </ul>
         </nav>
         
@@ -418,10 +417,10 @@
         <div id="mobile-overlay-menu">
             <div class="close-menu-btn" onclick="toggleMobileMenu()"></div>
             <ul class="mobile-links">
-                <li><a href="index.html">homepage</a></li>
-                <li><a href="catalogo.html">catalogo</a></li>
-                <li><a href="about.html">chi siamo</a></li>
-                <li><a href="carrello.html" class="cart-icon">carrello</a></li>
+                <li><a href="index.html">Homepage</a></li>
+                <li><a href="catalogo.html">Catalogo</a></li>
+                <li><a href="about.html">Il Progetto</a></li>
+                <li><a href="carrello.html" class="cart-icon">Carrello</a></li>
             </ul>
         </div>
     </header>
@@ -438,9 +437,9 @@
 
             <div class="menu-description-area">
                 <p id="desc-intro" class="active-desc">Una collezione di oggetti impossibili pensati per funzionare solo insieme. Strumenti familiari, che appartengono alla quotidianità lavorativa, vengono reinterpretati come archetipi della collaborazione.</p>
-                <p id="desc-manifesti" class="hidden-desc">I manifesti della campagna comunicativa “CoOrdinati®” sono affissi nelle principali aree comuni dei luoghi di lavoro. Pensati per inserirsi nella quotidianità lavorativa e proporre nuove prospettive.</p>
-                <p id="desc-cartoline" class="hidden-desc">Le cartoline della campagna comunicativa “CoOrdinati®” si possono trovare nelle aree comuni dei luoghi di lavoro. Pensati per inserirsi nella quotidianità lavorativa e proporre nuove prospettive.</p>
-                <p id="desc-tassonomia" class="hidden-desc"> All’interno del catalogo è presente un inserto poster che mostra la collezione nella sua interezza. Una visione generale di tutto ciò che si dovrebbe cambiare per favorire un ambiente di lavoro sano e collaborativo.</p>
+                <p id="desc-manifesti" class="hidden-desc">I manifesti della campagna comunicativa “CoOrdinati®” sono affissi nelle principali aree comuni dei luoghi di lavoro. Pensati proprio per inserirsi nella quotidianità di lavoratori e studenti e proporre nuove prospettive.</p>
+                <p id="desc-cartoline" class="hidden-desc">Le cartoline della campagna comunicativa “CoOrdinati®” si possono trovare nelle aree comuni dei luoghi di lavoro. Pensati per inserirsi nella quotidianità di lavoratori e studenti  e proporre nuove prospettive.</p>
+                <p id="desc-tassonomia" class="hidden-desc"> All’interno del catalogo è presente un inserto poster che mostra la collezione nella sua interezza. Un cambiamento generale per favorire un ambiente di lavoro sano e collaborativo.</p>
             </div>
         </div>
 
@@ -472,13 +471,9 @@
                 </div>
 
                 <div class="intro-block block-padding-medium credits-section">
-                    <p class="credits-names"><strong>Progetto realizzato da Arianna Vergani, Benedetta Giossi, Caterina Negrini, Leonardo Maurizio Caenazzo, Susanna Scopelliti</strong></p>
-                    <p>Laboratorio di Sintesi Finale Sez. 2 - A.A 2025-2026</p>
-                    
-                    <div class="black-label-container">
-                        <span class="black-label">Un progetto della Rete dei Comitati Unici di Garanzia</span>
-                        <span class="black-label">e degli Organismi di Parità Città di Milano</span>
-                    </div>
+                    <p class="credits-names"><strong>Campagna di comunicazione per promuovere il benessere e la collaborazione nei luoghi di lavoro.</strong></p>
+                    <p>Progetto accademico — Politecnico di Milano, Scuola del Design</p>
+                    <img src="assets/Cartiglio.png" alt="Cartiglio Rete CUG" class="footer-cartiglio">
                 </div>
             </section>
             
