@@ -110,14 +110,13 @@ a { text-decoration: none; color: inherit; }
 .desktop-only-nav ul { 
     list-style: none; display: flex; margin: 0; padding: 0; align-items: center; 
 }
-.desktop-only-nav ul li { margin: 0 25px; }
+.desktop-only-nav ul li {margin: 0 25px; }
 
 /* LINK MENU DESKTOP -> Articulat CF BOLD */
 .desktop-only-nav ul li a { 
     font-family: "articulat-cf", sans-serif; 
     font-weight: 700; /* BOLD */
     font-size: 14px; 
-    text-transform: lowercase; 
     position: relative; 
     text-decoration: none; 
     color: #000; 
@@ -206,6 +205,7 @@ a { text-decoration: none; color: inherit; }
 }
 .product-item:hover .product-overlay { opacity: 1; }
 
+
 .accordion-container {
     display: flex;
     width: 100%;
@@ -224,20 +224,31 @@ a { text-decoration: none; color: inherit; }
     display: flex; 
     flex-direction: column; 
     padding-right: 0;
-    border-top: 1px solid #000; 
+   
+    border-top: none; 
 }
 
 .accordion-item {
     display: flex; 
     border-bottom: 1px solid var(--border-color);
     border-left: 1px solid var(--border-color);
+    
+    margin-top: -1px; 
+    margin-bottom: -1px; 
+    
     min-height: 80px; 
     transition: all 0.4s ease;
     overflow: hidden; 
     cursor: pointer;
-    /* FIX CRITICO: Padding 0 qui per far toccare il fondo alla colonna colorata */
     padding: 0 !important; 
     background-color: #fff;
+    position: relative; 
+}
+
+
+.accordion-item:first-child {
+    border-top: 1px solid var(--border-color);   
+    
 }
 
 .number {
@@ -284,6 +295,11 @@ a { text-decoration: none; color: inherit; }
         padding-bottom: 0; 
         background: #fafafa;
     }
+
+      
+    .accordion-container {
+    border-bottom: none !important; /* Elimina la linea grigia extra */
+}
     
     /* Se vuoi spazio extra sotto al testo quando è aperto, aggiungilo qui */
     .accordion-item.active .content {
@@ -380,7 +396,7 @@ a { text-decoration: none; color: inherit; }
     .product-overlay { font-size: 12px; }
 
     /* 5. ACCORDION VERTICALE */
-    .accordion-container { flex-direction: column; padding: 20px 0; }
+    .accordion-container {border-bottom: 1px solid var(--border-color) !important; }
     .intro-text { padding: 0 20px 30px 20px; font-size: 1rem; }
     .accordion { padding-right: 0; width: 100%; }
 
@@ -396,9 +412,10 @@ a { text-decoration: none; color: inherit; }
     .red.active .number    { background-color: var(--red); color: white; }
     .purple.active .number { background-color: var(--purple); color: white; }
 
-    /* 6. QUIZ MOBILE */
-    .quiz-section { padding: 40px 20px; margin-top: 20px; border-top: 1px solid #eee; }
+     /* 6. QUIZ */
+    .quiz-section { padding: 40px 20px; margin-top: 20px; border-top: none; }
     #question-text { font-size: 1.4rem; }
+    /* --- STILE RISULTATO QUIZ (VERSIONE AGGIORNATA) --- */
 
     /* Rimpicciolisce ulteriormente l'immagine solo su telefono */
     .result-img {
