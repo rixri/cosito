@@ -14,26 +14,24 @@
             --header-height: 70px;
         }
 
-        /* --- RESET & BASE --- */
+        /* --- RESET FONDAMENTALE --- */
         * { box-sizing: border-box; }
 
         body, h1, h2, h3, h4, p, span, div, a, button, input, textarea {
-            /* FONT GLOBALE: Articulat CF */
             font-family: "articulat-cf", sans-serif;
-            /* PESO MINIMO: 500 (Medium) */
             font-weight: 500;
             -webkit-font-smoothing: antialiased;
             color: var(--text-color);
-            border-radius: 0 !important; /* Design squadrato */
+            border-radius: 0 !important;
         }
 
         html, body {
             width: 100%; margin: 0; padding: 0;
             background-color: var(--bg-color);
-            overflow: hidden; /* Layout fisso desktop */
+            overflow: hidden;
         }
 
-        /* --- HEADER (Identico a About) --- */
+        /* --- HEADER --- */
         #main-header {
             position: fixed; top: 0; left: 0; width: 100%;
             height: var(--header-height);
@@ -47,27 +45,18 @@
 
         .logo { 
             font-family: "articulat-cf", sans-serif !important; 
-            font-size: 24px; 
-            font-weight: 800 !important; /* Extra Bold */
-            letter-spacing: -0.5px; 
-            z-index: 1001; 
-            text-decoration: none; 
-            color: #000; 
+            font-size: 24px; font-weight: 800 !important; 
+            letter-spacing: -0.5px; z-index: 1001; 
+            text-decoration: none; color: #000; 
         }
 
         .desktop-only-nav ul { list-style: none; display: flex; margin: 0; padding: 0; align-items: center; }
         .desktop-only-nav ul li { margin: 0 25px; }
-        
         .desktop-only-nav ul li a { 
-            font-family: "articulat-cf", sans-serif; 
-            font-weight: 700; /* Bold */
+            font-family: "articulat-cf", sans-serif; font-weight: 700; 
             font-size: 14px; 
-            text-transform: lowercase; 
-            position: relative; 
-            text-decoration: none; 
-            color: #000; 
+            position: relative; text-decoration: none; color: #000; 
         }
-        
         .desktop-only-nav ul li a::after { content: ''; position: absolute; width: 0; height: 1px; bottom: -5px; left: 0; background-color: #000; transition: width 0.3s; }
         .desktop-only-nav ul li a:hover::after { width: 100%; }
 
@@ -86,86 +75,44 @@
             font-weight: 700 !important; font-size: 30px; 
             position: absolute; top: 30px; right: 30px; cursor: pointer; color: #000;
         }
-
         .mobile-links { list-style: none; padding: 0; text-align: center; display: flex; flex-direction: column; gap: 40px; }
         .mobile-links a { font-weight: 700 !important; font-size: 2.5rem; color: #000; text-decoration: none; }
 
-        /* --- LAYOUT CATALOGO (Grid come About) --- */
+        /* --- LAYOUT CATALOGO --- */
         .catalog-page-container {
             display: grid;
-            grid-template-columns: 400px 1fr; /* Colonna Info | Colonna Viewer */
+            grid-template-columns: 400px 1fr;
             height: 100vh;
             padding-top: 70px;
         }
 
-        /* Colonna Sinistra: Info fisse */
         .catalog-fixed-info {
-            grid-column: 1;
-            background-color: #fff;
-            border-right: 1px solid #000;
-            padding: 40px 30px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center; /* Centra verticalmente il testo */
+            grid-column: 1; background-color: #fff;
+            border-right: 1px solid #000; padding: 40px 30px;
+            display: flex; flex-direction: column; justify-content: center;
             overflow-y: auto;
         }
-
         .catalog-fixed-info h1 {
-            font-size: 4rem;
-            font-weight: 800; /* ExtraBold */
-            line-height: 0.9;
-            letter-spacing: -2px;
-            margin-bottom: 30px;
-            margin-top: 0;
+            font-size: 4rem; font-weight: 800; line-height: 0.9;
+            letter-spacing: -2px; margin-bottom: 30px; margin-top: 0;
         }
-
-        .catalog-fixed-info p {
-            font-size: 1.1rem;
-            line-height: 1.5;
-            margin-bottom: 20px;
-            font-weight: 500; /* Medium */
-        }
+        .catalog-fixed-info p { font-size: 1.1rem; line-height: 1.5; margin-bottom: 20px; font-weight: 500; }
         
-        .catalog-fixed-info strong {
-            font-weight: 800; /* ExtraBold per enfasi */
-        }
-
         .request-copy-btn {
-            margin-top: 20px;
-            padding: 15px 20px;
-            background: #000;
-            color: #fff;
-            border: none;
-            font-size: 1rem;
-            font-weight: 700; /* Bold */
-            text-transform: uppercase;
-            cursor: pointer;
-            transition: background 0.3s;
+            margin-top: 20px; padding: 15px 20px; background: #000; color: #fff; border: none;
+            font-size: 1rem; font-weight: 700; text-transform: uppercase; cursor: pointer; transition: background 0.3s;
         }
-        .request-copy-btn:hover {
-            background: #333;
-        }
+        .request-copy-btn:hover { background: #333; }
 
-        /* Colonna Destra: Viewer Iframe */
         .catalog-viewer-area {
-            grid-column: 2;
-            background-color: #f4f4f4; /* Leggero contrasto */
-            width: 100%;
-            height: 100%;
-            position: relative;
+            grid-column: 2; background-color: #f4f4f4; width: 100%; height: 100%; position: relative;
         }
-
-        .flipbook-wrapper {
-            width: 100%;
-            height: 100%;
-        }
+        .flipbook-wrapper { width: 100%; height: 100%; }
 
         /* --- MODALE --- */
         .modal-overlay {
-            display: none; /* Nascosto di default */
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0,0,0,0.5);
-            z-index: 3000;
+            display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.5); z-index: 3000;
             justify-content: center; align-items: center;
         }
 
@@ -173,10 +120,12 @@
             background: #fff;
             padding: 40px;
             width: 500px;
-            max-width: 90%;
+            max-width: 90%; 
             border: 1px solid #000;
             position: relative;
             box-shadow: 10px 10px 0 rgba(0,0,0,0.2);
+            max-height: 90vh;
+            overflow-y: auto;
         }
 
         .modal-close {
@@ -184,30 +133,38 @@
             background: none; border: none; font-size: 30px;
             cursor: pointer; font-weight: 700;
         }
-
-        .modal-box h2 {
-            font-weight: 800; font-size: 2rem; margin-bottom: 20px;
-        }
+        .modal-box h2 { font-weight: 800; font-size: 2rem; margin-bottom: 20px; }
 
         .catalog-form { display: flex; flex-direction: column; gap: 15px; }
 
         .catalog-form input, .catalog-form textarea {
-            padding: 15px;
-            border: 1px solid #000;
-            font-family: "articulat-cf", sans-serif;
-            font-weight: 500; /* Medium */
-            font-size: 1rem;
-            background: #fff;
+            padding: 15px; border: 1px solid #000;
+            font-family: "articulat-cf", sans-serif; font-weight: 500;
+            font-size: 1rem; background: #fff;
+            width: 100%; 
         }
-        
-        .catalog-form input::placeholder, .catalog-form textarea::placeholder {
-             font-weight: 500; color: #666;
+        .catalog-form input::placeholder, .catalog-form textarea::placeholder { font-weight: 500; color: #666; }
+
+        /* --- SOLUZIONE GRID (FUNZIONA OVUNQUE) --- */
+        .row-inputs {
+            display: grid;
+            /* Crea due colonne identiche (50% e 50%) */
+            grid-template-columns: 1fr 1fr;
+            /* Se preferisci il CAP più piccolo, usa: grid-template-columns: 1fr 2fr; */
+            gap: 10px;
+            width: 100%;
+        }
+
+        /* Forza gli input a riempire la cella della griglia */
+        .row-inputs input {
+            width: 100% !important; 
+            min-width: 0; /* Impedisce overflow su schermi minuscoli */
         }
 
         .submit-btn {
             padding: 15px; background: #000; color: #fff;
             font-weight: 700; text-transform: uppercase;
-            border: none; cursor: pointer; margin-top: 10px;
+            border: none; cursor: pointer; margin-top: 10px; width: 100%;
         }
 
         /* --- MOBILE --- */
@@ -224,14 +181,15 @@
 
             .catalog-fixed-info {
                 width: 100%; border-right: none; border-bottom: 1px solid #000;
-                padding: 40px 20px;
-                height: auto;
+                padding: 40px 20px; height: auto;
             }
-
             .catalog-fixed-info h1 { font-size: 2.5rem; }
 
-            .catalog-viewer-area {
-                width: 100%; height: 60vh; /* Altezza fissa per il viewer su mobile */
+            .catalog-viewer-area { width: 100%; height: 60vh; }
+            
+            .modal-box {
+                padding: 25px; 
+                width: 95%;
             }
         }
     </style>
@@ -273,9 +231,7 @@
 
         <div class="catalog-viewer-area">
             <div class="flipbook-wrapper">
-                
-                            <iframe allowfullscreen="" allow="clipboard-write" scrolling="no" class="fp-iframe" style="border: 0px; width: 100%; height: 600px;" src="https://heyzine.com/flip-book/13cdd4fb02.html"></iframe>
-                        
+                <iframe allowfullscreen="" allow="clipboard-write" scrolling="no" class="fp-iframe" style="border: 0px; width: 100%; height: 600px;" src="https://heyzine.com/flip-book/13cdd4fb02.html"></iframe>
             </div>
         </div>
     </main>
@@ -288,26 +244,24 @@
                 <input type="text" placeholder="Nome e cognome" required>
                 <input type="email" placeholder="Email" required>
                 <input type="text" placeholder="Indirizzo completo" required>
-                <div style="display: flex; gap: 10px;">
+                
+                <div class="row-inputs">
                     <input type="text" placeholder="CAP" required>
                     <input type="text" placeholder="Città" required>
                 </div>
+                
                 <textarea placeholder="Note (facoltativo)"></textarea>
                 <button type="submit" class="submit-btn">Invia richiesta</button>
             </form>
         </div>
     </div>
 
-    
-
     <script>
-        // Menu Mobile
         function toggleMobileMenu() {
             document.getElementById("mobile-overlay-menu").classList.toggle("open");
             document.querySelector(".hamburger-icon").classList.toggle("active");
         }
 
-        // Gestione Modale
         const openBtn = document.getElementById('openModal');
         const modal = document.getElementById('catalog-modal');
         const closeBtn = document.getElementById('closeModal');
